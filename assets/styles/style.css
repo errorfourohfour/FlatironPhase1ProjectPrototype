@@ -1,6 +1,60 @@
-.cat-container img {
-    max-width: 500px;
-}
-h1{
-    color: black
-} 
+body{
+    background-image: url("https://m.media-amazon.com/images/I/619fI0gr0mL._AC_.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #cat-div {
+    max-width: 30%;
+    float: left;
+    width: 35%;
+    height: 100px;
+  }
+  #dog-div {
+    max-width: 30%;
+    float: right;
+    width: 35%;
+  }
+  .cat-container img {
+    max-width: 350px;
+  }
+  h1 {
+    color: black;
+    text-align: center;
+  }
+  #cat-btn {
+    float: left;
+    font-size:20px;
+    border-color:red;
+    background-color: green;
+    color: yellow;
+  }
+  .cat-container {
+    float: left;
+  }
+  #dog-btn {
+    float: right;
+    font-size: 20px;
+    border-color:blue;
+    background-color: yellow;
+    color:green;
+  }
+  .dog-container {
+    float: right;
+  }
+  .dog-container img {
+    max-width: 350px;
+  }
+  #global-container {
+    display: inline-block;
+  }
+  #my-h3-div {
+    height: 0px;
+    text-align: center;
+    width: 50%;
+  }
+  #the-h3{
+    font-size:50px;
+  }
+  #global-div{
+  display: flex;
+  }

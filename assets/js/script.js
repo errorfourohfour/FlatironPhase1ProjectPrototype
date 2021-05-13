@@ -1,48 +1,44 @@
 let header = document.querySelector("h1");
- header.style.backgroundColor = "white";
-//How would I affect the second h1 using querySelectorAll?
+header.style.backgroundColor = "white";
+const dogButton = document.querySelector("#dog-btn");
+
+document.addEventListener('DOMContentLoaded',() =>{
+  alert("Welcome to the Cute Animal Competition, where YOU are the judge that chooses the cuter picture!")
+})
+
 header.addEventListener("click", function () {
-//   if (header.style.backgroundColor === "blue") {
-//     header.style.backgroundColor = "red";
-//   } else if ( header.style.backgroundColor === "red"){
-//       header.style.backgroundColor = "green"
-//   } else {
-//       header.style.backgroundColor = "blue"
-//   }
-
-switch(header.style.backgroundColor){
-    case 'white':
-        header.style.background = "blue"
-        header.style.color = "lightgreen"
-        break;
-    case 'blue':
-        header.style.backgroundColor = "red"
-        header.style.color = "blue";
-        break;
-    case 'red':
-        header.style.backgroundColor = "lightgreen"
-        header.style.color = "red";
-        break;
-    case 'lightgreen':
-        header.style.backgroundColor = "blue"
-        header.style.color="lightgreen"
-}
-
+  let randomColorNumber = Math.floor(Math.random() * 16777215).toString(16);
+  let randomColor = `#${randomColorNumber}`;
+  header.style.color = randomColor;
+  let randomColorNumberTwo = Math.floor(Math.random() * 16777215).toString(16);
+  let randomColorTwo = `#${randomColorNumberTwo}`;
+  header.style.backgroundColor = randomColorTwo;
 });
-const catButton= document.querySelector("#cat-btn")
-catButton.addEventListener("click", (catButtonParameter) => {
-    fetch('https://aws.random.cat/meow')
-    .then(response => response.json())
-    .then(catApiAfterJsonConversion => {
-        const displayedImage = document.createElement('img'); // <img />
-        displayedImage.setAttribute('src', catApiAfterJsonConversion.file); // <img src="http:url" />
-        const imgContainer = document.querySelector('.cat-container'); // <div class="cat-container>"
-        
-        // the next line(s) are to replace image, rather than just add another image
-        //I set the space where the image will go to ' '/empty, then run code
-        //to turn that empty space into the picture from the API
-          imgContainer.innerHTML = "";
 
-        imgContainer.appendChild(displayedImage);
+const catButton = document.querySelector("#cat-btn");
+catButton.addEventListener("click", (catButtonParameter) => {
+  fetch("https://aws.random.cat/meow")
+    .then((response) => response.json())
+    .then((catApiAfterJsonConversion) => {
+      const displayedImageForCats = document.createElement("img"); // <img />
+      displayedImageForCats.setAttribute("src", catApiAfterJsonConversion.file); // <img src="http:url" />
+      const imgContainerForCats = document.querySelector(".cat-container"); // <div class="cat-container>"
+      imgContainerForCats.innerHTML = "";
+      imgContainerForCats.appendChild(displayedImageForCats);
     });
 });
+
+dogButton.addEventListener("click", (dogButtonParameter) => {
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then((response) => response.json())
+      .then((dogApiAfterJsonConversion) => {
+        const displayedImageForDogs = document.createElement("img");
+        displayedImageForDogs.setAttribute(
+          "src",
+          dogApiAfterJsonConversion.message
+        );
+        const imgContainerForDogs = document.querySelector(".dog-container");
+        imgContainerForDogs.innerHTML = "";
+        imgContainerForDogs.appendChild(displayedImageForDogs);
+      });
+  });
