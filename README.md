@@ -1,4 +1,5 @@
 # FlatironPhase1ProjectPrototype
+My first Flatiron Unit Project
 
 This is a project that had to use three distinct event listeners, one of which had to be an API.
 My event listeners are 
